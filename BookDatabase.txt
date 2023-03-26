@@ -1,0 +1,13 @@
+Enable-Migrations
+Add-Migration initial
+Update-Database
+Add-Migration InitialCreate_Publisher -Context PublisherDataContext
+Add-Migration InitialCreate_Book -Context BookDataContext
+Update-Database -Context PublisherDataContext
+Update-Database -Context BookDataContext
+
+dotnet ef migrations add Publishers --context PublisherDataContext
+dotnet ef migrations add Books --context BookDataContext
+
+dotnet ef database update Publishers --context PublisherDataContext
+dotnet ef database update Books --context BookDataContext
